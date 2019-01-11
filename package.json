@@ -1,0 +1,22 @@
+{
+  "name": "clock-in",
+  "version": "1.0.0",
+  "description": "Time tracking desktop app",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SophiaSheref/Clock-in.git"
+  },
+  "author": "Sophia Sheref",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SophiaSheref/Clock-in/issues"
+  },
+  "homepage": "https://github.com/SophiaSheref/Clock-in#readme",
+  "dependencies": {
+    "electron": "^4.0.1"
+  }
+}
