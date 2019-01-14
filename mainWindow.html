@@ -5,9 +5,32 @@
   </head>
   <body>
     <h1>Xtenfer</h1>
-    <button>Clock-in</button>
-    <button>Clock-out</button>
-    <button>Break-in</button>
-    <button>Break-out</button>
+    <form>
+      <button type="button" id="clockIn" onclick="this.form.timeField.value=getTimeStamp()">Clock-in</button>
+      <input type="text" name="timeField" size="11">
+      <button type="clockout" >Clock-out</button>
+      <button type="breakin">Break-in</button>
+      <button type="breakout">Break-out</button>
+    </form>
+    <script>
+      const electron = require('electron');
+      const {ipcRenderer} = electron;
+
+      // const form = document.querySelector('form');
+      // form.addEventListener('clockin', clockIn);
+      //
+      // function clockIn(e){
+      //   e.preventDefault();
+      //   console.log(123);
+      // }
+
+      function getTimeStamp() {
+             var now = new Date();
+             return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
+                           + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
+                           .getSeconds()) : (now.getSeconds())));
+      }
+
+    </script>
   </body>
   </html>
