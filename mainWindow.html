@@ -6,11 +6,25 @@
   <body>
     <h1>Xtenfer</h1>
     <form>
-      <button type="button" id="clockIn" onclick="this.form.timeField.value=getTimeStamp()">Clock-in</button>
-      <input type="text" name="timeField" size="11">
-      <button type="clockout" >Clock-out</button>
-      <button type="breakin">Break-in</button>
-      <button type="breakout">Break-out</button>
+      <div>
+        <button type="button" id="clockIn" onclick="this.form.timeIn.value=getTimeStamp()">Clock-in</button>
+        <output type="text" name="timeIn" size="14">
+      </div>
+      <br>
+      <div>
+        <button type="button" id="clockOut" onclick="this.form.timeOut.value=getTimeStamp()">Clock-out</button>
+        <output type="text" name="timeOut" size="14">
+      </div>
+      <br>
+      <div>
+        <button type="button" id="breakIn" onclick="this.form.brkIn.value=getTimeStamp()">Break-in</button>
+        <output type="text" name="brkIn" size="14">
+      </div>
+      <br>
+      <div>
+        <button type="button" id="breakOut" onclick="this.form.brkOut.value=getTimeStamp()">Break-out</button>
+        <output type="text" name="brkOut" size="14">
+      </div>
     </form>
     <script>
       const electron = require('electron');
@@ -24,12 +38,16 @@
       //   console.log(123);
       // }
 
-      function getTimeStamp() {
+// Function to get the current time
+function getTimeStamp() {
              var now = new Date();
              return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
                            + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
                            .getSeconds()) : (now.getSeconds())));
-      }
+                           form.timeIn.disabled = true;
+    return true;
+      };
+
 
     </script>
   </body>
