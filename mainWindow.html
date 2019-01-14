@@ -30,22 +30,12 @@
       const electron = require('electron');
       const {ipcRenderer} = electron;
 
-      // const form = document.querySelector('form');
-      // form.addEventListener('clockin', clockIn);
-      //
-      // function clockIn(e){
-      //   e.preventDefault();
-      //   console.log(123);
-      // }
-
 // Function to get the current time
 function getTimeStamp() {
              var now = new Date();
              return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
                            + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
                            .getSeconds()) : (now.getSeconds())));
-                           form.timeIn.disabled = true;
-    return true;
       };
 
 
