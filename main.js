@@ -32,9 +32,9 @@ Menu.setApplicationMenu(mainMenu);
  function createResetPasswordWindow(){
    //create new window
    resetPasswordWindow = new BrowserWindow({
-     nodeIntegration : true,
+     nodeIntegration: true,
      width:300,
-     height:200,
+     height:300,
      title:'Reset Your Password'
    });
    //Load html into window
