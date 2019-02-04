@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/SophiaSheref/Clock-in#readme",
   "dependencies": {
+    "bootstrap": "^4.2.1",
     "electron": "^4.0.1"
   }
 }

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Time Tracker</title>
+  <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase-database.js"></script>
+</head>
+<body>
+  <h1>Xtenfer</h1>
+  <!-- Buttons for each time in and out. disappear once clicked -->
+  <form>
+    <div>
+      <button type="button" id="clockIn" onclick="this.form.timeIn.value=getTimeStamp(), style.display='none'">Clock-in</button>
+      <output type="text" name="timeIn" size="14">
+    </div>
+    <br>
+    <div>
+      <button type="button" id="clockOut" onclick="this.form.timeOut.value=getTimeStamp(), style.display='none'">Clock-out</button>
+      <output type="text" name="timeOut" size="14">
+    </div>
+    <br>
+    <div>
+      <button type="button" id="breakIn" onclick="this.form.brkIn.value=getTimeStamp(), style.display='none'">Break-in</button>
+      <output type="text" name="brkIn" size="14">
+    </div>
+    <br>
+    <div>
+      <button type="button" id="breakOut" onclick="this.form.brkOut.value=getTimeStamp(), style.display='none'">Break-out</button>
+      <output type="text" name="brkOut" size="14">
+    </div>
+    <br>
+    <div>
+      <button type="button" id="logOutBtn">Logout</button>
+    </div>
+  </form>
+</body>
+  <script>
+    require('../renderer.js');
+    const electron = require('electron');
+    const {ipcRenderer} = electron;
+
+// Function to get the current time
+    function getTimeStamp() {
+     var now = new Date();
+     return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
+     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
+     .getSeconds()) : (now.getSeconds())));
+      }
+  </script>
+</html>

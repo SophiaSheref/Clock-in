@@ -1,26 +1,40 @@
-const electron = require('electron');
+const {app, BrowserWindow, Menu} = require('electron');
 const url = require('url');
 const path = require('path');
 
-const {app, BrowserWindow, Menu} = electron;
 
-let mainWindow;
+let login;
+// let mainWindow;
 let resetPasswordWindow;
 
-//Listen for app to be ready
-app.on('ready', function(){
+//listen for app to be ready
+app.on('ready', function() {
   //create new window
-  mainWindow = new BrowserWindow({});
-  //Load html into window
-  mainWindow.loadURL(url.format({
-    pathname: path.join(__dirname, 'mainWindow.html'),
-    protocol:'file:',
+  login = new BrowserWindow({});
+  //load html into window
+  login.loadURL(url.format({
+    pathname: path.join(__dirname, 'src/login.html'),
+    protocol: 'file:',
     slashes: true
   }));
-// Quit app when closed
-mainWindow.on('closed', function(){
-  app.quit();
+  login.on('closed', function(){
+    app.quit();
 });
+
+//Listen for app to be ready
+// app.on('ready', function() {
+  //create new window
+  // mainWindow = new BrowserWindow({});
+  //Load html into window
+  // mainWindow.loadURL(url.format({
+  //   pathname: path.join(__dirname, 'mainWindow.html'),
+  //   protocol:'file:',
+  //   slashes: true
+  // }));
+// Quit app when closed
+// mainWindow.on('closed', function(){
+//   app.quit();
+// });
 
 //Build menu from template
 const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
@@ -39,7 +53,7 @@ Menu.setApplicationMenu(mainMenu);
    });
    //Load html into window
    resetPasswordWindow.loadURL(url.format({
-     pathname: path.join(__dirname, 'resetPasswordWindow.html'),
+     pathname: path.join(__dirname, 'src/resetPasswordWindow.html'),
      protocol:'file:',
      slashes: true
    }));
@@ -60,6 +74,7 @@ const mainMenuTemplate = [
           createResetPasswordWindow();
         }
       },
+      {type: 'separator'},
       {
         label: 'Quit',
         accelerator: process.platform == 'darwin' ? 'Command+Q' : 'Ctrl+Q',
@@ -88,6 +103,7 @@ if(process.env.NODE_ENV !== 'production'){
           focusedWindow.toggleDevTools();
         }
       },
+      {type: 'separator'},
       {
         role: 'reload'
       }
