@@ -32,15 +32,12 @@
     </div>
     <br>
     <div>
-      <button type="button" id="logOutBtn">Logout</button>
+      <button type="button" id="logoutBtn">Log out</button>
     </div>
   </form>
 </body>
   <script>
-    require('../renderer.js');
-    const electron = require('electron');
-    const {ipcRenderer} = electron;
-
+    require('./renderer.js');
 // Function to get the current time
     function getTimeStamp() {
      var now = new Date();

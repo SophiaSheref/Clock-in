@@ -1,19 +1,20 @@
 const {app, BrowserWindow, Menu} = require('electron');
 const url = require('url');
 const path = require('path');
+const ipc = require('electron').ipcMain;
+require('electron-reload')(__dirname);
 
 
 let login;
 // let mainWindow;
 let resetPasswordWindow;
-
 //listen for app to be ready
 app.on('ready', function() {
   //create new window
   login = new BrowserWindow({});
   //load html into window
   login.loadURL(url.format({
-    pathname: path.join(__dirname, 'src/login.html'),
+    pathname: path.join(__dirname, './src/login.html'),
     protocol: 'file:',
     slashes: true
   }));
@@ -47,13 +48,14 @@ Menu.setApplicationMenu(mainMenu);
    //create new window
    resetPasswordWindow = new BrowserWindow({
      nodeIntegration: true,
-     width:300,
-     height:300,
+     frame: false,
+     width:400,
+     height:200,
      title:'Reset Your Password'
    });
    //Load html into window
    resetPasswordWindow.loadURL(url.format({
-     pathname: path.join(__dirname, 'src/resetPasswordWindow.html'),
+     pathname: path.join(__dirname, './src/resetPasswordWindow.html'),
      protocol:'file:',
      slashes: true
    }));
